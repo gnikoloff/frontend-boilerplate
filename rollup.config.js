@@ -25,8 +25,8 @@ export default {
     commonjs(),
     nodeResolve(),
     typescript({
-      useTsconfigDeclarationDir: true,
-      declarationDir: 'dist/src',
+      // useTsconfigDeclarationDir: true,
+      // declarationDir: 'dist/src',
     }),
     css({
       minify: process.env.NODE_ENV === 'production',
@@ -34,8 +34,7 @@ export default {
     sourcemaps(),
     copy({
       targets: [
-        { src: `index.html`, dest: `dist` },
-        { src: 'src/assets/**/*', dest: 'dist/assets' },
+        // { src: `index.html`, dest: `dist` },
       ],
     }),
     glslify(),
