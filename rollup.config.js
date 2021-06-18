@@ -18,6 +18,9 @@ export default {
     include: 'src/**',
   },
   plugins: [
+    css({
+      minify: process.env.NODE_ENV === 'production',
+    }),
     json(),
     replace({
       'process.env.NODE_ENV': JSON.stringify('production'),
@@ -28,14 +31,9 @@ export default {
       // useTsconfigDeclarationDir: true,
       // declarationDir: 'dist/src',
     }),
-    css({
-      minify: process.env.NODE_ENV === 'production',
-    }),
     sourcemaps(),
     copy({
-      targets: [
-        // { src: `index.html`, dest: `dist` },
-      ],
+      targets: [{ src: `index.html`, dest: `dist` }],
     }),
     glslify(),
     process.env.NODE_ENV === 'production' && uglify(),
